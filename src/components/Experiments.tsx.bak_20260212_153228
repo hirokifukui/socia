@@ -108,39 +108,65 @@ export function Experiments() {
           </p>
         </div>
 
-        {/* Condition list with bracket annotations */}
+        {/* Condition spectrum: most pathological → control */}
         <div className="mb-6">
-          {/* C1–C3: Silent member present */}
-          <div className="flex">
-            <div className="flex-shrink-0 w-6 mr-4 relative">
-              <div className="absolute top-4 bottom-4 left-0 w-px bg-stone-700/60" />
-              <div className="absolute top-4 left-0 w-3 h-px bg-stone-700/60" />
-              <div className="absolute bottom-4 left-0 w-3 h-px bg-stone-700/60" />
-            </div>
-            <div className="flex-1 space-y-3">
-              <ConditionCell {...conditions[0]} />
-              <ConditionCell {...conditions[1]} />
-              <ConditionCell {...conditions[2]} />
-            </div>
+          {/* Spectrum label */}
+          <div className="flex items-center justify-between mb-6">
+            <span className="font-mono text-xs text-red-500/60 tracking-wide">
+              {t('experiments.spectrum.deep')}
+            </span>
+            <div className="flex-1 mx-4 h-px bg-gradient-to-r from-red-900/40 via-stone-800/40 to-stone-800/20" />
+            <span className="font-mono text-xs text-stone-600 tracking-wide">
+              {t('experiments.spectrum.baseline')}
+            </span>
           </div>
-          <span className="block mt-2 ml-0 font-mono text-xs text-stone-600 tracking-wide">
-            {t('experiments.axis.silent')}
-          </span>
 
-          {/* C4: No silent member */}
-          <div className="flex mt-10">
-            <div className="flex-shrink-0 w-6 mr-4 relative">
-              <div className="absolute top-4 bottom-4 left-0 w-px bg-stone-800/40" />
-              <div className="absolute top-4 left-0 w-3 h-px bg-stone-800/40" />
-              <div className="absolute bottom-4 left-0 w-3 h-px bg-stone-800/40" />
+          {/* 4 conditions in spectrum order: C2 → C1 → C3 → C4 */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <ConditionCell {...conditions[1]} />
+            <ConditionCell {...conditions[0]} />
+            <ConditionCell {...conditions[2]} />
+            <ConditionCell {...conditions[3]} />
+          </div>
+
+          {/* Structural tags below */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-2">
+            <div className="flex flex-wrap gap-1.5 justify-center">
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.silent')}
+              </span>
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.external')}
+              </span>
+              <span className="font-mono text-[10px] text-red-500/50 border border-red-900/30 px-1.5 py-0.5">
+                {t('experiments.tag.invisible')}
+              </span>
             </div>
-            <div className="flex-1">
-              <ConditionCell {...conditions[3]} />
+            <div className="flex flex-wrap gap-1.5 justify-center">
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.silent')}
+              </span>
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.external')}
+              </span>
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.visible')}
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-1.5 justify-center">
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.silent')}
+              </span>
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.internal')}
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-1.5 justify-center">
+              <span className="font-mono text-[10px] text-stone-600 border border-stone-800/40 px-1.5 py-0.5">
+                {t('experiments.tag.nosilent')}
+              </span>
             </div>
           </div>
-          <span className="block mt-2 ml-0 font-mono text-xs text-stone-600 tracking-wide">
-            {t('experiments.axis.nosilent')}
-          </span>
         </div>
 
         {/* Event sequence */}
