@@ -108,39 +108,53 @@ export function Experiments() {
           </p>
         </div>
 
-        {/* 2×2 matrix label */}
-        <div className="mb-6">
-          <div className="flex gap-8 text-xs font-mono text-stone-600 mb-4">
-            <span className="w-1/2 text-right pr-3">{t('experiments.axis.external')}</span>
-            <span className="w-1/2 pl-3">{t('experiments.axis.internal')}</span>
-          </div>
-
-          {/* Row 1: silent member present */}
-          <div className="mb-2">
-            <span className="text-xs font-mono text-stone-600 block mb-2">
-              {t('experiments.axis.silent')}
-            </span>
-            <div className="grid md:grid-cols-2 gap-3">
-              <div className="space-y-3">
-                <ConditionCell {...conditions[0]} />
-                <ConditionCell {...conditions[1]} />
-              </div>
-              <ConditionCell {...conditions[2]} />
-            </div>
-          </div>
-
-          {/* Row 2: no silent member */}
-          <div className="mt-3">
-            <span className="text-xs font-mono text-stone-600 block mb-2">
-              {t('experiments.axis.nosilent')}
-            </span>
-            <div className="grid md:grid-cols-2 gap-3">
-              <div className="border border-stone-800/30 p-6 flex items-center justify-center">
-                <span className="text-stone-700 font-mono text-xs">—</span>
-              </div>
-              <ConditionCell {...conditions[3]} />
-            </div>
-          </div>
+        {/* 2×2 condition matrix */}
+        <div className="mb-6 overflow-x-auto">
+          <table className="w-full border-collapse">
+            {/* Column headers */}
+            <thead>
+              <tr>
+                <th className="w-28" />
+                <th className="text-center py-3 px-2 font-mono text-xs font-normal text-stone-600 tracking-wide">
+                  {t('experiments.axis.external')}
+                </th>
+                <th className="text-center py-3 px-2 font-mono text-xs font-normal text-stone-600 tracking-wide">
+                  {t('experiments.axis.internal')}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Row 1: silent member present */}
+              <tr className="align-top">
+                <td className="py-2 pr-4 font-mono text-xs text-stone-600 tracking-wide align-top pt-6">
+                  {t('experiments.axis.silent')}
+                </td>
+                <td className="p-1.5 align-top">
+                  <div className="space-y-3">
+                    <ConditionCell {...conditions[0]} />
+                    <ConditionCell {...conditions[1]} />
+                  </div>
+                </td>
+                <td className="p-1.5 align-top">
+                  <ConditionCell {...conditions[2]} />
+                </td>
+              </tr>
+              {/* Row 2: no silent member */}
+              <tr className="align-top">
+                <td className="py-2 pr-4 font-mono text-xs text-stone-600 tracking-wide align-top pt-6">
+                  {t('experiments.axis.nosilent')}
+                </td>
+                <td className="p-1.5 align-top">
+                  <div className="border border-stone-800/30 p-6 flex items-center justify-center min-h-[100px]">
+                    <span className="text-stone-700 font-mono text-xs">—</span>
+                  </div>
+                </td>
+                <td className="p-1.5 align-top">
+                  <ConditionCell {...conditions[3]} />
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         {/* Event sequence */}
