@@ -19,6 +19,7 @@ export function Hero() {
           <p>{t('hero.narrative.2')}</p>
           <p>{t('hero.narrative.3')}</p>
           <p className="text-stone-200">{t('hero.narrative.4')}</p>
+          <p className="text-stone-200">{t('hero.narrative.5')}</p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 animate-fade-in-delay-3">

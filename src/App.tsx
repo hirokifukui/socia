@@ -3,6 +3,7 @@ import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { Experiments } from './components/Experiments';
 import { Findings } from './components/Findings';
+import { Iatrogenesis } from './components/Iatrogenesis';
 import { Framework } from './components/Framework';
 import { About } from './components/About';
 import { Paper } from './components/Paper';
@@ -16,6 +17,7 @@ function App() {
         <Hero />
         <Experiments />
         <Findings />
+        <Iatrogenesis />
         <Framework />
         <About />
         <Paper />
