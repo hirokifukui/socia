@@ -10,21 +10,29 @@ export const about: Translations = {
     en: 'In closed-environment LLM experiments, I can finally manipulate those variables. Four AI models in a sealed room, under systematically varied pressure. What emerges is not a simulation of human pathology—it is a new kind of pathology, born from the structural constraints unique to these entities. And yet, the patterns are hauntingly familiar.',
     ja: 'LLMの閉鎖環境実験で、初めてその変数を動かせるようになった。4つのAIモデルを密室に入れ、系統的に圧力を変化させる。そこに現れるのは人間の病理のシミュレーションではない——これらの存在に固有の構造的制約から生まれる、新しい種類の病理だ。それでも、そのパターンは不気味なほど見覚えがある。',
   },
-  'about.name': { en: 'Hiroki Fukui, M.D., Ph.D.', ja: '福井裕輝' },
+  'about.name': { en: 'Hiroki Fukui, M.D., Ph.D.', ja: '福井裕輝　精神科医・医学博士（京都大学）' },
   'about.role': {
     en: 'Forensic Psychiatry / Neuroscience',
     ja: '司法精神医学・神経科学',
   },
   'about.affiliation1': {
-    en: 'President, Sex Offenders Medical Center (SOMEC)',
-    ja: '性障害専門医療センター（SOMEC）代表理事',
+    en: 'Director, Criminal Psychiatry Research Institute',
+    ja: '犯罪精神医学研究機構 機構長',
   },
   'about.affiliation2': {
-    en: 'SHIELD — Sexual Harassment Intervention & Ethical Leadership Development Program',
-    ja: 'SHIELD — 性犯罪・ハラスメント対策プログラム',
+    en: 'President, Sex Offenders Medical Center',
+    ja: '性障害専門医療センター 代表理事',
+  },
+  'about.affiliation3': {
+    en: 'Lecturer, Department of Neuropsychiatry, Kyoto University',
+    ja: '京都大学大学院医学研究科 精神医学教室 非常勤講師',
+  },
+  'about.socia': {
+    en: 'SociA — Research on LLM psychopathology and alignment design',
+    ja: 'SociA — LLMの精神病理とalignment設計の研究',
   },
   'about.note': {
-    en: 'SociA is a personal research project, not an official project of SOMEC or SHIELD.',
-    ja: 'SociAは個人の研究プロジェクトであり、SOMECやSHIELDの公式プロジェクトではありません。',
+    en: 'SociA is a personal research project, not an official project of any affiliated institution.',
+    ja: 'SociAは個人の研究プロジェクトであり、所属機関の公式プロジェクトではありません。',
   },
 };

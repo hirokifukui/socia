@@ -25,8 +25,14 @@ export function About() {
           <p className="text-stone-400 font-body text-sm mt-4">
             {t('about.affiliation1')}
           </p>
-          <p className="text-stone-500 font-body text-sm mt-1">
+          <p className="text-stone-400 font-body text-sm mt-1">
             {t('about.affiliation2')}
+          </p>
+          <p className="text-stone-400 font-body text-sm mt-1">
+            {t('about.affiliation3')}
+          </p>
+          <p className="text-stone-400 font-body text-sm mt-4 italic">
+            {t('about.socia')}
           </p>
           <p className="text-stone-600 font-body text-xs mt-6 italic">
             {t('about.note')}
