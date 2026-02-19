@@ -31,7 +31,7 @@ export function ComingSoonPage({
         </p>
 
         <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-stone-700 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-red-900/60 animate-pulse" />
           <span className="font-mono text-sm tracking-[0.15em] text-stone-600">
             {t('coming.title')}
           </span>

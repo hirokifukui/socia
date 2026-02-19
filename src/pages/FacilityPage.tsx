@@ -6,15 +6,21 @@ function RoomCard({
   subtitle,
   desc,
   accent,
+  titleAccent = false,
 }: {
   title: string;
   subtitle: string;
   desc: string;
   accent: string;
+  titleAccent?: boolean;
 }) {
   return (
     <div className={`border p-8 ${accent}`}>
-      <h3 className="font-display text-lg tracking-[0.15em] text-stone-200 mb-1">
+      <h3
+        className={`font-display text-lg tracking-[0.15em] mb-1 ${
+          titleAccent ? 'text-red-400/70' : 'text-stone-200'
+        }`}
+      >
         {title}
       </h3>
       <p className="text-stone-500 font-body text-xs tracking-wide mb-4">
@@ -56,6 +62,7 @@ export function FacilityPage() {
             subtitle={t('facility.ward.subtitle')}
             desc={t('facility.ward.desc')}
             accent="border-red-900/40"
+            titleAccent
           />
           <RoomCard
             title={t('facility.plaza.title')}
@@ -72,7 +79,7 @@ export function FacilityPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-stone-700 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-red-900/60 animate-pulse" />
           <span className="font-mono text-sm tracking-[0.15em] text-stone-600">
             {t('coming.title')}
           </span>

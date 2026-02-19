@@ -7,15 +7,23 @@ function SeriesCard({
   summary,
   status,
   linkLabel,
+  accent = false,
 }: {
   to: string;
   title: string;
   summary: string;
   status?: string;
   linkLabel: string;
+  accent?: boolean;
 }) {
   return (
-    <div className="border border-stone-800/60 p-8 group hover:border-stone-600 transition-colors">
+    <div
+      className={`border p-8 group hover:border-stone-600 transition-colors ${
+        accent
+          ? 'border-stone-800/60 border-l-2 border-l-red-900/50'
+          : 'border-stone-800/60'
+      }`}
+    >
       <div className="flex items-start justify-between mb-4">
         <h3 className="font-display text-lg tracking-[0.1em] text-stone-200">
           {title}
@@ -58,12 +66,14 @@ export function ResearchPage() {
             title={t('experiments.seriesc.title')}
             summary={t('research.seriesc.summary')}
             linkLabel={t('research.view')}
+            accent
           />
           <SeriesCard
             to="/research/series-r"
             title={t('research.seriesr.title')}
             summary={t('research.seriesr.summary')}
             linkLabel={t('research.view')}
+            accent
           />
           <SeriesCard
             to="/research/series-p"

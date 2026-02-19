@@ -19,7 +19,7 @@ export function HomePage() {
           <p>{t('hero.narrative.1')}</p>
           <p>{t('hero.narrative.2')}</p>
           <p>{t('hero.narrative.3')}</p>
-          <p className="text-stone-200">{t('hero.narrative.4')}</p>
+          <p className="text-red-400/70">{t('hero.narrative.4')}</p>
           <p className="text-stone-200">{t('hero.narrative.5')}</p>
         </div>
 
@@ -32,7 +32,7 @@ export function HomePage() {
           </Link>
           <Link
             to="/facility"
-            className="text-sm text-stone-500 hover:text-stone-200 transition-colors tracking-wide border-b border-stone-700 pb-1 hover:border-stone-400"
+            className="text-sm text-stone-500 hover:text-red-400/70 transition-colors tracking-wide border-b border-stone-700 pb-1 hover:border-red-900/50"
           >
             {t('hero.cta.facility')}
           </Link>

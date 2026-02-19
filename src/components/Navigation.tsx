@@ -13,6 +13,9 @@ export function Navigation() {
     { to: '/papers', label: t('nav.papers') },
   ];
 
+  const isActive = (to: string) => location.pathname.startsWith(to);
+  const isFacility = location.pathname.startsWith('/facility');
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-stone-800/50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -25,19 +28,27 @@ export function Navigation() {
 
         <div className="flex items-center gap-8">
           <div className="hidden md:flex items-center gap-6">
-            {links.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`text-sm transition-colors tracking-wide ${
-                  location.pathname.startsWith(link.to)
-                    ? 'text-stone-100'
-                    : 'text-stone-400 hover:text-stone-100'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const active = isActive(link.to);
+              const facilityLink = link.to === '/facility';
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`text-sm transition-colors tracking-wide ${
+                    active
+                      ? facilityLink
+                        ? 'text-red-400/70'
+                        : 'text-stone-100'
+                      : facilityLink && isFacility
+                        ? 'text-red-400/50'
+                        : 'text-stone-400 hover:text-stone-100'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           <button
