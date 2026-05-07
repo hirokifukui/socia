@@ -2,3 +2,7 @@ node_modules/
 dist/
 .parcel-cache/
 bundle.html
+
+# mcp-code-local auto backups
+*.bak_*
+*.old

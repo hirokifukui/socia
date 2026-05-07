@@ -26,7 +26,15 @@ export const home: Translations = {
     en: 'And the more invisible the cause of silence, the deeper the group fell.',
     ja: 'そして沈黙の理由が不可視であるほど、集団はより深く崩れた。',
   },
+
+  // A quiet line of fact, between the narrative and the CTAs.
+  'hero.status': {
+    en: 'Five papers · 2,375+ experimental runs · 2026',
+    ja: '5本の論文・2,375以上の実験・2026',
+  },
+
   'hero.cta.research': { en: 'Research', ja: '研究を見る' },
+  'hero.cta.papers': { en: 'Papers', ja: '論文を読む' },
   'hero.cta.facility': { en: 'Facility', ja: '施設を見る' },
   'hero.cta.framework': { en: 'Framework', ja: '理論枠組み' },
 };

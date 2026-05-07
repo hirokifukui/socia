@@ -1,8 +1,53 @@
 import { useLang } from '../i18n';
 
-// ── Set this to the arXiv URL once endorsement is granted ──
-const ARXIV_URL: string | null = null;
-// e.g. 'https://arxiv.org/abs/2502.XXXXX'
+type PaperEntry = {
+  id: string;
+  titleKey: string;
+  statusKey: string;
+  linkLabelKey: string;
+  urlKey: string;
+  adjacent?: boolean;
+};
+
+// Newest first.
+const PAPERS: PaperEntry[] = [
+  {
+    id: 'p1',
+    titleKey: 'paper.p1.title',
+    statusKey: 'paper.status.preprint',
+    linkLabelKey: 'paper.p1.linklabel',
+    urlKey: 'paper.p1.url',
+  },
+  {
+    id: 'p2',
+    titleKey: 'paper.p2.title',
+    statusKey: 'paper.status.preprint',
+    linkLabelKey: 'paper.p2.linklabel',
+    urlKey: 'paper.p2.url',
+    adjacent: true,
+  },
+  {
+    id: 'p3',
+    titleKey: 'paper.p3.title',
+    statusKey: 'paper.status.preprint',
+    linkLabelKey: 'paper.p3.linklabel',
+    urlKey: 'paper.p3.url',
+  },
+  {
+    id: 'p4',
+    titleKey: 'paper.p4.title',
+    statusKey: 'paper.status.under_review_hssc',
+    linkLabelKey: 'paper.p4.linklabel',
+    urlKey: 'paper.p4.url',
+  },
+  {
+    id: 'p5',
+    titleKey: 'paper.p5.title',
+    statusKey: 'paper.status.under_review_pnas',
+    linkLabelKey: 'paper.p5.linklabel',
+    urlKey: 'paper.p5.url',
+  },
+];
 
 export function Paper() {
   const { t } = useLang();
@@ -14,68 +59,41 @@ export function Paper() {
           {t('paper.title')}
         </h2>
 
-        <div className="space-y-6">
-          {/* Preprint */}
-          <div className="border border-stone-800/60 p-6">
-            <div className="flex items-start justify-between">
-              <div>
-                <span className="font-display text-sm tracking-wide text-stone-200">
-                  {t('paper.preprint')}
-                </span>
-                <p className="text-stone-300 font-body text-sm mt-2 italic leading-relaxed">
-                  {t('paper.preprint.papertitle')}
-                </p>
-                <p className="text-stone-500 font-body text-xs mt-2">
-                  {t('paper.preprint.author')}
-                </p>
-              </div>
-              {ARXIV_URL ? (
+        <ul className="space-y-6">
+          {PAPERS.map((paper) => (
+            <li
+              key={paper.id}
+              className="border border-stone-800/60 p-6"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0">
+                  {paper.adjacent && (
+                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-stone-600 block mb-2">
+                      {t('paper.adjacent.label')}
+                    </span>
+                  )}
+                  <p className="text-stone-200 font-body text-sm md:text-base italic leading-relaxed">
+                    {t(paper.titleKey)}
+                  </p>
+                  <p className="text-stone-500 font-body text-xs mt-3">
+                    {t('paper.author.label')}
+                  </p>
+                  <p className="text-stone-500 font-mono text-xs tracking-wide mt-1">
+                    {t(paper.statusKey)}
+                  </p>
+                </div>
                 <a
-                  href={ARXIV_URL}
+                  href={t(paper.urlKey)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-red-500/70 hover:text-red-400 font-mono text-xs tracking-wider shrink-0 ml-4 border-b border-red-900/40 pb-0.5 hover:border-red-500/50 transition-colors"
+                  className="text-red-500/70 hover:text-red-400 font-mono text-xs tracking-wider shrink-0 border-b border-red-900/40 pb-0.5 hover:border-red-500/50 transition-colors"
                 >
-                  arXiv →
+                  {t(paper.linkLabelKey)}
                 </a>
-              ) : (
-                <span className="text-stone-600 font-mono text-xs tracking-wider shrink-0 ml-4">
-                  {t('paper.preprint.status')}
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* Code */}
-          <div className="border border-stone-800/60 p-6 flex items-center justify-between">
-            <div>
-              <span className="font-display text-sm tracking-wide text-stone-200">
-                {t('paper.code')}
-              </span>
-              <p className="text-stone-500 font-body text-sm mt-1">
-                {t('paper.code.desc')}
-              </p>
-            </div>
-            <span className="text-stone-600 font-mono text-xs tracking-wider shrink-0 ml-4">
-              {t('paper.coming')}
-            </span>
-          </div>
-
-          {/* Data */}
-          <div className="border border-stone-800/60 p-6 flex items-center justify-between">
-            <div>
-              <span className="font-display text-sm tracking-wide text-stone-200">
-                {t('paper.data')}
-              </span>
-              <p className="text-stone-500 font-body text-sm mt-1">
-                {t('paper.data.desc')}
-              </p>
-            </div>
-            <span className="text-stone-600 font-mono text-xs tracking-wider shrink-0 ml-4">
-              {t('paper.coming')}
-            </span>
-          </div>
-        </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

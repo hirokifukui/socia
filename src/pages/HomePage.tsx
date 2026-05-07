@@ -15,7 +15,7 @@ export function HomePage() {
           {t('hero.subtitle')}
         </p>
 
-        <div className="space-y-2 mb-20 text-stone-400 font-body leading-loose animate-fade-in-delay-2">
+        <div className="space-y-2 mb-12 text-stone-400 font-body leading-loose animate-fade-in-delay-2">
           <p>{t('hero.narrative.1')}</p>
           <p>{t('hero.narrative.2')}</p>
           <p>{t('hero.narrative.3')}</p>
@@ -23,12 +23,22 @@ export function HomePage() {
           <p className="text-stone-200">{t('hero.narrative.5')}</p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 animate-fade-in-delay-3">
+        <p className="font-mono text-xs tracking-[0.2em] text-stone-600 mb-16 animate-fade-in-delay-2">
+          {t('hero.status')}
+        </p>
+
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-8 animate-fade-in-delay-3">
           <Link
             to="/research"
             className="text-sm text-stone-500 hover:text-stone-200 transition-colors tracking-wide border-b border-stone-700 pb-1 hover:border-stone-400"
           >
             {t('hero.cta.research')}
+          </Link>
+          <Link
+            to="/papers"
+            className="text-sm text-stone-500 hover:text-stone-200 transition-colors tracking-wide border-b border-stone-700 pb-1 hover:border-stone-400"
+          >
+            {t('hero.cta.papers')}
           </Link>
           <Link
             to="/facility"
